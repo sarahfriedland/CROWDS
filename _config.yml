@@ -46,12 +46,12 @@ jekyll-minifier:
       harmony: true
 
 # Site variables
-image_path: assets/media
-uploads_path: assets/media/uploads
-js_path: assets/js
-css_path: assets/css
-fonts_path: assets/fonts
-icons_path: assets/icons
+image_path: /assets/media
+uploads_path: /assets/media/uploads
+js_path: /assets/js
+css_path: /assets/css
+fonts_path: /assets/fonts
+icons_path: /assets/icons
 
 # Site settings
 show_excerpts: true
