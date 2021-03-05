@@ -5,6 +5,6 @@
   console.log("body scripts:" ,{{site.body_scripts | jsonify}});
 </script>
 
-{%- for script in site.body_scripts -%}
-  <script src="{{script}}" type="text/javascript"></script>
+{%- for script in site.body_scripts.local -%}
+  <script src="{{ {{script}} | relative_url }}" type="text/javascript"></script>
 {%- endfor -%}
