@@ -1,0 +1,34 @@
+<div class="container-fluid pointer-e-all">
+
+  <div class='row py-6 text-xs'>
+
+    <div class='col-sm col-md col-lg-4 col-xl-2 mb-5 mb-sm-0'>
+        <div class=''>
+          {% for item in site.data.footer.links %}
+            <div class=''>
+              <a href="{{item.url}}">{{item.label}}</a>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="col-sm col-md-6 col-lg-4 mb-3 mb-sm-0">
+      <div class='contact'>
+        {{site.data.footer.info | markdownify}}
+      </div>
+    </div>
+
+
+    <div class="col-sm col-md-3 col-lg-3 col-xl-2 text-sm-right text-md-left ml-auto">
+      <div class='TRR'>
+        <div class='mb-2'>
+          Powered by:
+        </div>
+          <a href='https://www.trr.se/' target='_blank'><img width='70' src='{{site.data.content.trr.trr-logos.white}}' /></a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

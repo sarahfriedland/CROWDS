@@ -1,0 +1,109 @@
+<!-- <header class="site-header" role="banner"> -->
+
+  <div class="container-fluid pointer-e-all">
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    <!-- <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a> -->
+
+    {%- if page_paths -%}
+
+      <nav class="navbar navbar-dark navbar-expand-sm main-nav row align-items-start">
+
+          <div class="col-4 col-sm-6 col-xl-8 text-left">
+            {% if page.url == "/" %}
+            <div class="d-block text-md text-capitalize font-weight-semi-bold">
+            {% endif %}
+                <!-- Swedish<br /><span class="work">work</span><br />lab -->
+                <!-- <a href="{{ "/" | relative_url }}"> -->
+                  <img class="" id="logo" height="70" src="{{site.data.logos.CROWDS-white}}" alt="test">
+                <!-- </a> -->
+            {% if page.url == "/" %}
+            </div>
+            {% endif %}
+          </div>
+
+
+            <button class="navbar-toggler collapsed flex-column align-items-end text-right col-8" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <!-- <span class="navbar-toggler-icon"></span> -->
+              <span class="icon-bar top-bar"></span>
+            	<span class="icon-bar middle-bar"></span>
+            	<span class="icon-bar bottom-bar"></span>
+            </button>
+
+            <!-- <div class="collapse navbar-collapse col text-right" id="navbarNavDropdown">
+              <div class="navbar-nav d-flex justify-content-between w-100"> -->
+
+              <div class="collapse navbar-collapse col col-sm-6 col-md-6 col-xl-4 text-right text-sm-left" id="navbarNavDropdown">
+                <div class="navbar-nav row flex-column flex-sm-row pt-3 pt-sm-0">
+                  {% for item in site.data.menu.items %}
+                    <div class="col-sm offset-0 offset-sm-0 text-left text-sm-left">
+                      <div class="dropdown">
+
+                        <a class="nav-item nav-link {% for subitem in item.sub-menu %}{% if item.url == page.url or subitem.url == page.url %}{% endif %}{% endfor %}" href="{{ item.url | relative_url }}">
+                          {{ item.label | escape }}
+                          {% if item.url == page.url %}
+                            ←
+                            {% elsif item.sub-menu.size > 0 %}
+                              {% for subitem in item.sub-menu %}
+                                {% if subitem.url == page.url %}
+                                  ←
+                                  {% break %}
+                                {% endif%}
+                                {% if forloop.last == true %}
+                                  →
+                                {% endif %}
+                              {% endfor %}
+                            {% else %}
+                              →
+                          {% endif %}
+                        </a>
+
+                        {% if item.sub-menu %}
+                          <div class="dropdown-content">
+                            {% for subitem in item.sub-menu %}
+                              <a class="{% if subitem.url == page.url %}active{% else %}{% endif %}" href="{{ subitem.url | relative_url }}">{{subitem.label}}</a>
+                            {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endfor %}
+
+                  {% comment %}
+                    {% if site.data.menu.blog.enabled %}
+                      <div class="col-sm offset-0 offset-sm-0 text-left text-sm-left">
+                        <div class="dropdown">
+                          <a class="nav-item nav-link {% for subitem in item.sub-menu %}{% if item.url == page.url or subitem.url == page.url %}{% endif %}{% endfor %}" href="{{ item.url | relative_url }}">
+                            {{ item.label | escape }}
+                            {% if item.url == page.url %}
+                              ←
+                              {% elsif item.sub-menu.size > 0 %}
+                                {% for subitem in item.sub-menu %}
+                                  {% if subitem.url == page.url %}
+                                    ←
+                                    {% break %}
+                                  {% endif%}
+                                  {% if forloop.last == true %}
+                                    →
+                                  {% endif %}
+                                {% endfor %}
+                              {% else %}
+                                →
+                            {% endif %}
+                          </a>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endcomment %}
+
+                </div>
+              </div>
+
+      </nav>
+
+    {%- endif -%}
+
+    <!-- <div class="w-100 border-bottom mb-4"></div> -->
+
+  </div>
+<!-- </header> -->

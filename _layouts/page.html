@@ -1,0 +1,203 @@
+---
+layout: default
+scripts:
+  animation: true
+  body:
+    cdn:
+      - //unpkg.com/weakmap-polyfill/weakmap-polyfill.min.js
+      - //unpkg.com/formdata-polyfill
+      - //player.vimeo.com/api/player.js
+    assets:
+      - index.js
+  head:
+    cdn:
+    assets:
+css:
+
+menu: dark
+footer: light
+---
+
+<div class="page-content-container h-100 w-100 scene3d">
+  <div class="container3d h-100 w-100 position-relative">
+
+
+
+    <div class="container-fluid h-inherit object3d landing current">
+      <!-- <div class="row min-h-100 flex-column flex-sm-row"> -->
+      <div class="row flex-column min-h-100 flex-sm-row">
+
+          <div class="d-sm-block col display-4 align-self-center text-center flex-grow-1 mb-4 mb-sm-8">
+            <img class="position-relative" id="landing-logo" height="125" src="{{site.data.logos.CROWDS-white}}" alt="test">
+          </div>
+
+      </div>
+
+    </div>
+
+    <div class="container-fluid h-inherit object3d">
+        <div class="header-wrapper w-100 invisible mb-6 mb-md-8">
+          {%- include navbar.html -%}
+        </div>
+        <!-- <div class="row min-h-100 flex-column flex-sm-row"> -->
+        <div class="row flex-column flex-sm-row">
+
+
+          {% assign body = site.data.info.walltext | markdownify | split: '</p>' -%}
+
+            <div class="col-sm-10 display-4 align-self-start flex-grow-1 mb-4 mb-sm-8">
+              <div class="row">
+                <div class="col">
+                  <p>A Score for Distant Viewing:</p>
+                  <p>Position your body towards the light of the screen.*</p>
+                  <p>Assemble your spine in a way that suits you. You may sit up. You may sit down. You may lean over. You may lean back. You may assume all of these positions. </p>
+                  <p>Playback will begin automatically upon entering the site and cannot be paused. The videos are continuously looping; you enter when you enter. </p>
+                  <p>Turn the sound on, if it’s not already.</p>
+                  <p>Turn off the lights, if you like. </p>
+                  <p>Rest your hands on the keypad of your computer, the index and ring fingers pressing the left and right arrow keys, respectively.
+                  <br>[Or, locate both the up and down arrow keys with your index or middle finger.]</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col text-center">
+                  <p>← →</p>
+                </div>
+                <div class="col text-center">
+                  <p>↑    ↓</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <p>You enact the edit. Apply pressure to these keys, alternating between them with the pace and regularity you desire to move between the channels and the perspectives they allow.</p>
+                  <p>Leave the room, if you wish. Come back.</p>
+                  <p>-SF</p>
+                  <p>~~~~~~~~~~</p>
+                  <p>*Position your body towards the light of the screen.</p>
+                  <p>This score performs cinema.</p>
+                  <p>My personal history as a viewer can be enumerated not only as an inventory of moving images imprinted in my memory and practice, but also as a pattern of sitting and standing and their sensations. A habitual viewer, my body remembers postures, sanctioned fidgets, and contacts with chairs and benches and other bodily forms. I feel an incoherent and discontinuous timeline of calibration, of my body closening and distancing from screens amidst shifting qualities of ambient light. These feelings too are cinema, and its expansions. Removed from its architectures, I feel it more clearly now as a practice of positioning my body towards a light source, refracted and reflected.</p>
+                  <p>Without the social contracts of the cinema and the gallery, I feel unsure how to watch: I don’t know what to do with my body. Feelings of failure -- I don’t know these moves -- permeate my virtual and remote viewing experiences.</p>
+                  <p>Over these months I have considered what it would be like to re-choreography my viewing habits. I still don’t know, but I have tried different postures and patterns.</p>
+                  <p>I recall that some of the earliest cinema-goers were unseated and looked down, not up. The kinetoscope invited an audience of one-at-a-time to stand and hunch over an eyepiece, their spines and gazes curving towards the peephole. The mechanisms of projecting moving images have always provided a physical score, directing bodies in their position to an image. In the arc of kinetoscope viewers’ backs, we can read cinema as a directive towards specific viewing postures. At its simplest, it is a proposition that we let our bodies be at rest, relatively still, in a dark, silent room.</p>
+                  <p>And so, this I ask of you: position your body towards the light of the screen.</p>
+                  <p>This is enough. You know how to do the rest.</p>
+                </div>
+              </div>
+
+
+              {% comment %}
+                {% for p in body %}
+                  {{ p | prepend: '</p>' }}
+                {% endfor %}
+              {% endcomment %}
+            </div>
+          </div>
+
+          {% comment %}
+            {{site.data.info.walltext | markdownify}}
+          {% endcomment %}
+          <div id="intro-overlay" class="position-absolute h-100 w-100 bg-body-color z-1 position-top">
+          </div>
+      </div>
+
+      <div class="container-fluid h-inherit py-8 object3d">
+
+        <div class="row h-inherit">
+          <div class="col">
+            <div class="vimeo-container" id="video1"></div>
+            <!-- <video id="channel_1" autoplay muted loop width="100%">
+              <source src="assets/videos/CHANNEL_1.mp4" type="video/mp4">
+            </video> -->
+          </div>
+        </div>
+
+        <div id="video-overlay" class="position-absolute h-100 w-100 alpha-overlay-b">
+        </div>
+
+      </div>
+
+
+      <div class="container-fluid h-inherit py-8 object3d">
+
+
+        <div class="row h-inherit">
+          <div class="col">
+            <div class="vimeo-container" id="video2"></div>
+            <!-- <video id="channel_2" autoplay muted loop width="100%">
+              <source src="assets/videos/CHANNEL_2.mp4" type="video/mp4">
+            </video> -->
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container-fluid h-inherit py-8 object3d">
+
+
+        <div class="row h-inherit">
+          <div class="col">
+            <div class="vimeo-container" id="video3"></div>
+            <!-- <video id="channel_3" autoplay muted loop width="100%">
+              <source src="assets/videos/CHANNEL_3.mp4" type="video/mp4">
+            </video> -->
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container-fluid h-inherit object3d">
+
+        <div class="header-wrapper w-100 invisible {% if page.url != "/lab/" %}mb-6 mb-md-8{% endif %}">
+          {%- include navbar.html -%}
+        </div>
+
+        {% comment %}
+          {% assign body = site.data.info.essay | markdownify | split: '</p>' -%}
+        {% endcomment %}
+
+
+          <div class="row pb-8">
+            <div class="col-sm-10">
+              {{ site.data.info.essay.intro | markdownify }}
+            </div>
+          </div>
+
+          {% for item in site.data.info.essay.body | markdownify %}
+
+            <div class="row pb-8">
+            {% if item.type == "speaker" %}
+
+                {% if item.speaker == "Sarah" %}
+                  <div class="col-sm-6 offset-6 text-md">
+                    {{ item.speaker }}:<br>
+                    {{ item.content | markdownify }}
+                  </div>
+                {% else %}
+                <div class="col-sm-6 text-md">
+                  {{ item.speaker }}:<br>
+                  {{ item.content | markdownify }}
+                </div>
+                {% endif %}
+
+
+                  {% comment %}
+                    {{ p | prepend: '</p>' }}
+                  {% endcomment %}
+
+             {% else %}
+                 <div class="col-sm-6 text-md">
+                   {{ item.content | prepend: '</p>' }}
+                 </div>
+
+             {% endif %}
+            </div>
+
+          {% endfor %}
+
+
+        <div id="essay-overlay" class="position-absolute h-100 w-100 alpha-overlay-b">
+        </div>
+
+      </div>
+
+  </div>
+</div>

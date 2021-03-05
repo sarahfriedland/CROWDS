@@ -1,0 +1,17 @@
+//footer
+#footer {
+  @extend ‰bar;
+  font-size: $font-size-xs !important;
+  padding-bottom: $navbar-padding-edge !important;
+  position: fixed;
+  bottom: 0;
+}
+
+footer > div {
+  padding-top: $nav-link-padding-y;
+  padding-bottom: $nav-link-padding-y;
+}
+
+.footer-wrapper {
+  z-index: 3;
+}

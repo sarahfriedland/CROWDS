@@ -1,0 +1,10 @@
+<script>
+  // {% if jekyll.environment == "development" %}
+  //   console.log = function() {}
+  // {% endif %}
+  console.log("body scripts:" ,{{site.body_scripts | jsonify}});
+</script>
+
+{%- for script in site.body_scripts -%}
+  <script src="{{script}}" type="text/javascript"></script>
+{%- endfor -%}

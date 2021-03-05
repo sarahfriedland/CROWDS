@@ -1,0 +1,27 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// @import "minima";
+@import 'custom';
+@import 'blog';
+@import 'type';
+@import 'navbar';
+@import 'footer';
+@import 'canvas';
+@import 'index';
+@import 'form';
+@import 'animations';
+@import 'projections';
+
+
+body * {
+  // font-family: "Scto-Grotesk" !important;
+}
+
+@font-face {
+  font-family: 'Scto-Grotesk';
+  src: url('{{site.url}}/{{site.fonts_path}}/Scto-Grotesk-B-Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
