@@ -8,3 +8,7 @@
 {%- for script in site.body_scripts.local -%}
   <script src="{{ {{script}} | relative_url }}" type="text/javascript"></script>
 {%- endfor -%}
+
+{%- for script in site.body_scripts.cdn -%}
+  <script src="{{script}}" type="text/javascript"></script>
+{%- endfor -%}
